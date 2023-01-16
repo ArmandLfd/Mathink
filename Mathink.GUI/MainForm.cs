@@ -35,7 +35,7 @@ namespace Mathink.GUI
             }
             catch (Exception ex)
             {
-                slErr.Text = "错误: " + ex.Message;
+                slErr.Text = "Error: " + ex.Message;
                 return;
             }
             File.WriteAllText(OutputPath, svgStr);
@@ -44,7 +44,7 @@ namespace Mathink.GUI
                 this.picOut.Image = Image.FromStream(ms);
             }
             slErr.Text = string.Empty;
-            slRet.Text = "渲染成功";
+            slRet.Text = "Rendered successfully";
 
         }
         byte[] imgOut;
@@ -105,15 +105,15 @@ namespace Mathink.GUI
         {
 
             OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Title = "打开文件";
+            dialog.Title = "Open a file";
             dialog.FileName = "";
-            dialog.Filter = "平文本(.txt)|.txt|Markdown(.md)|.md|LaTex(.tex)|.tex|所有(*.*)|*.*";
+            dialog.Filter = "Plain text(.txt)|.txt|Markdown(.md)|.md|LaTex(.tex)|.tex|All(*.*)|*.*";
 
             if (dialog.ShowDialog() == DialogResult.Cancel) return;
             var fileName = dialog.FileName;
             if (!File.Exists(fileName))
             {
-                MessageBox.Show("文件不存在!", "错误", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("File does not exist!", "Mistake", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             txtIn.Text = File.ReadAllText(fileName);
 
@@ -123,14 +123,14 @@ namespace Mathink.GUI
         {
             var dialog = new SaveFileDialog();
             dialog.FileName = "";
-            dialog.Filter = "PNG 格式|.png";
-            dialog.Title = "保存";
+            dialog.Filter = "PNG format|.png";
+            dialog.Title = "Save as PNG";
             if (dialog.ShowDialog() == DialogResult.Cancel) return;
 
             var fileName = dialog.FileName;
             if (!fileName.EndsWith(".png")) fileName += ".png";
             System.IO.File.WriteAllBytes(fileName, imgOut);
-            var ret = MessageBox.Show("保存成功, 打开所在目录吗?", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            var ret = MessageBox.Show("Saved successfully , Is it the right directory?", "Hint", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (ret == DialogResult.Yes)
             {
                 string argument = "/select, \"" + fileName + "\"";
@@ -146,14 +146,14 @@ namespace Mathink.GUI
 
             var dialog = new SaveFileDialog();
             dialog.FileName = "";
-            dialog.Filter = "SVG 格式(.svg)|.svg";
-            dialog.Title = "保存";
+            dialog.Filter = "SVG format(.svg)";
+            dialog.Title = "Save as SVG";
             if (dialog.ShowDialog() == DialogResult.Cancel) return;
 
             var fileName = dialog.FileName;
             if (!fileName.EndsWith(".svg")) fileName += ".svg";
             System.IO.File.WriteAllText(fileName, svg);
-            var ret = MessageBox.Show("保存成功, 打开所在目录吗?", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            var ret = MessageBox.Show("Saved successfully, Is it the right directory?", "Hint", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (ret == DialogResult.Yes)
             {
                 string argument = "/select, \"" + fileName + "\"";
@@ -169,14 +169,14 @@ namespace Mathink.GUI
 
             var dialog = new SaveFileDialog();
             dialog.FileName = "";
-            dialog.Filter = "平文本(.txt)|.txt";
-            dialog.Title = "保存";
+            dialog.Filter = "plain text(.txt)|.txt";
+            dialog.Title = "Save as txt";
             if (dialog.ShowDialog() == DialogResult.Cancel) return;
 
             var fileName = dialog.FileName;
             if (!fileName.EndsWith(".txt")) fileName += ".txt";
             System.IO.File.WriteAllText(fileName, latex);
-            var ret = MessageBox.Show("保存成功, 打开所在目录吗?", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            var ret = MessageBox.Show("Saved successfully, Is it the right directory?", "Hint", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (ret == DialogResult.Yes)
             {
                 string argument = "/select, \"" + fileName + "\"";
@@ -187,7 +187,7 @@ namespace Mathink.GUI
         private void 复制输出路径ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(OutputPath);
-            slRet.Text = "复制成功!";
+            slRet.Text = "Copy successfully!";
         }
 
         private void 打开程序目录ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -213,14 +213,14 @@ namespace Mathink.GUI
 
         private void githubToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var ret = MessageBox.Show("将会打开 Github 上, 本 repo 的网页, 继续吗?", "提醒", MessageBoxButtons.OKCancel);
+            var ret = MessageBox.Show("It will open the Github repo webpage, continue?", "Hint", MessageBoxButtons.OKCancel);
             if (ret == DialogResult.Cancel) return;
             Process.Start("https://github.com/pluveto/Mathink");
         }
 
         private void 关于ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("本产品由 Pluveto 开发, 基于 WpfMath 库. Dev by Pluveto.\n And thanks to the authors of WpfMath lib!");
+            MessageBox.Show("This product is developed by Pluveto, based on WpfMath library. Dev by Pluveto.\n And thanks to the authors of WpfMath lib!");
         }
     }
 }
