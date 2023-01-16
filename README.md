@@ -8,8 +8,8 @@ Inkscape math symbols / formula editor with latex/tex syntax. **Latex Env not re
 ## Modifications
 This repo is forked one, please refer to the original repo first.
 
-Here, find a list of the modification/addition(s) made from the original work:
-* The GUI has been translated in English and all the code variables have been also.
+Here, find a list of the modifications/additions made from the original work:
+* The GUI has been translated into English and all the code variables have also been.
 * The formula can be copied to the clipboard in the SVG format.
 
 ## Usage
@@ -26,4 +26,5 @@ Inkscape 0.9x is no longer supported. Require >= 1.0
 
 ## Release
 
-Goto: https://github.com/pluveto/Mathink/releases
+v1.1 (original): https://github.com/pluveto/Mathink/releases
+v1.2 (mine version): 
