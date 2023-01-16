@@ -71,7 +71,9 @@ namespace Mathink.GUI
             var builder = new StringBuilder();
             builder.AppendLine("<?xml version=\"1.0\" encoding=\"UTF-8\" ?>")
                 .AppendLine("<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" >")
+                .AppendLine("<g>")
                 .AppendLine(svgText)
+                .AppendLine("</g>")
                 .AppendLine("</svg>");
 
             return builder.ToString();
@@ -81,7 +83,7 @@ namespace Mathink.GUI
         {
             OutputPath = Application.StartupPath + Path.DirectorySeparatorChar + "out.svg";
             txtIn_TextChanged(null, null);
-            置顶窗口ToolStripMenuItem_Click(null, null);
+            TopWindowToolStripMenuItem_Click(null, null);
 
             tabPage1.Parent = null;
             //wb.AllowWebBrowserDrop = false;
@@ -96,12 +98,12 @@ namespace Mathink.GUI
             MessageBox.Show(svgstr);
         }
 
-        private void 文件ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void documentToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void 导入ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void importToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
             OpenFileDialog dialog = new OpenFileDialog();
@@ -119,7 +121,7 @@ namespace Mathink.GUI
 
         }
 
-        private void 保存图片ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void savePNGToolStripMenuItem_Click(object sender, EventArgs e)
         {
             var dialog = new SaveFileDialog();
             dialog.FileName = "";
@@ -138,7 +140,7 @@ namespace Mathink.GUI
             }
         }
 
-        private void 保存SVGToolStripMenuItem_Click(object sender, EventArgs e)
+        private void saveSVGToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string svg;
             var latex = txtIn.Text.Trim();
@@ -162,7 +164,7 @@ namespace Mathink.GUI
 
         }
 
-        private void 保存ToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void saveTxtToolStripMenuItem1_Click(object sender, EventArgs e)
         {
 
             var latex = txtIn.Text.Trim();
@@ -184,13 +186,13 @@ namespace Mathink.GUI
             }
         }
 
-        private void 复制输出路径ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void cpyOutPath(object sender, EventArgs e)
         {
             Clipboard.SetText(OutputPath);
             slRet.Text = "Copy successfully!";
         }
 
-        private void 打开程序目录ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void openProgDir(object sender, EventArgs e)
         {
             Process.Start("explorer.exe", Application.StartupPath);
         }
@@ -200,15 +202,15 @@ namespace Mathink.GUI
             System.IO.File.Delete(OutputPath);
         }
 
-        private void 清空ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void EmptyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             txtIn.Clear();
             picOut.Image = null;
         }
 
-        private void 置顶窗口ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void TopWindowToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.TopMost = 置顶窗口ToolStripMenuItem.Checked;
+            this.TopMost = topWindowToolStripMenuItem.Checked;
         }
 
         private void githubToolStripMenuItem_Click(object sender, EventArgs e)
@@ -218,9 +220,30 @@ namespace Mathink.GUI
             Process.Start("https://github.com/pluveto/Mathink");
         }
 
-        private void 关于ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("This product is developed by Pluveto, based on WpfMath library. Dev by Pluveto.\n And thanks to the authors of WpfMath lib!");
+        }
+
+        private void buttonCopyClipboard_Click(object sender, EventArgs e)
+        {
+            var latex = txtIn.Text.Trim();
+            string dataSVG;
+            try
+            {
+                ( dataSVG, imgOut) = renderLatex(latex, false);
+            }
+            catch (Exception ex)
+            {
+                slErr.Text = "Error: " + ex.Message;
+                return;
+            }
+            byte[] bytes = Encoding.UTF8.GetBytes(dataSVG);
+            MemoryStream stream = new MemoryStream(bytes);
+            Clipboard.SetData("image/svg+xml", stream);
+
+            slErr.Text = string.Empty;
+            slRet.Text = "Copy to clipboard successfully";
         }
     }
 }

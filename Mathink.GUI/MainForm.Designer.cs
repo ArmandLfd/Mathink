@@ -37,25 +37,26 @@
             this.slErr = new System.Windows.Forms.ToolStripStatusLabel();
             this.slRet = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.文件ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.导入ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.保存ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.保存图片ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.保存SVGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.保存ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.编辑ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.清空ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.documentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.savePNGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveSVGToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveTxtToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.emptyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.帮助ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.githubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.复制输出路径ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.打开程序目录ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.关于ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.工具ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.置顶窗口ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cpyOutPathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openProgDirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.topWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpWpfmath = new System.Windows.Forms.TabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.wb = new System.Windows.Forms.WebBrowser();
+            this.buttonCopyClipboard = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picOut)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -74,7 +75,7 @@
             this.picOut.Location = new System.Drawing.Point(9, 178);
             this.picOut.Name = "picOut";
             this.picOut.Padding = new System.Windows.Forms.Padding(8);
-            this.picOut.Size = new System.Drawing.Size(310, 165);
+            this.picOut.Size = new System.Drawing.Size(310, 131);
             this.picOut.TabIndex = 0;
             this.picOut.TabStop = false;
             // 
@@ -140,10 +141,10 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.文件ToolStripMenuItem,
-            this.编辑ToolStripMenuItem,
+            this.documentToolStripMenuItem,
+            this.editToolStripMenuItem,
             this.帮助ToolStripMenuItem,
-            this.工具ToolStripMenuItem});
+            this.toolsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(335, 24);
@@ -152,76 +153,76 @@
             // 
             // 文件ToolStripMenuItem
             // 
-            this.文件ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.导入ToolStripMenuItem,
-            this.保存ToolStripMenuItem});
-            this.文件ToolStripMenuItem.Name = "文件ToolStripMenuItem";
-            this.文件ToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
-            this.文件ToolStripMenuItem.Text = "Document";
-            this.文件ToolStripMenuItem.Click += new System.EventHandler(this.文件ToolStripMenuItem_Click);
+            this.documentToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.importToolStripMenuItem,
+            this.saveAsToolStripMenuItem});
+            this.documentToolStripMenuItem.Name = "文件ToolStripMenuItem";
+            this.documentToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
+            this.documentToolStripMenuItem.Text = "Document";
+            this.documentToolStripMenuItem.Click += new System.EventHandler(this.documentToolStripMenuItem_Click);
             // 
             // 导入ToolStripMenuItem
             // 
-            this.导入ToolStripMenuItem.Name = "导入ToolStripMenuItem";
-            this.导入ToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.导入ToolStripMenuItem.Text = "Open";
-            this.导入ToolStripMenuItem.Click += new System.EventHandler(this.导入ToolStripMenuItem_Click);
+            this.importToolStripMenuItem.Name = "导入ToolStripMenuItem";
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.importToolStripMenuItem.Text = "Open";
+            this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
             // 
             // 保存ToolStripMenuItem
             // 
-            this.保存ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.保存图片ToolStripMenuItem,
-            this.保存SVGToolStripMenuItem,
-            this.保存ToolStripMenuItem1});
-            this.保存ToolStripMenuItem.Name = "保存ToolStripMenuItem";
-            this.保存ToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
-            this.保存ToolStripMenuItem.Text = "Save as";
+            this.saveAsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.savePNGToolStripMenuItem,
+            this.saveSVGToolStripMenuItem,
+            this.saveTxtToolStripMenuItem1});
+            this.saveAsToolStripMenuItem.Name = "保存ToolStripMenuItem";
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.saveAsToolStripMenuItem.Text = "Save as";
             // 
             // 保存图片ToolStripMenuItem
             // 
-            this.保存图片ToolStripMenuItem.Name = "保存图片ToolStripMenuItem";
-            this.保存图片ToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
-            this.保存图片ToolStripMenuItem.Text = "Save as PNG";
-            this.保存图片ToolStripMenuItem.Click += new System.EventHandler(this.保存图片ToolStripMenuItem_Click);
+            this.savePNGToolStripMenuItem.Name = "保存图片ToolStripMenuItem";
+            this.savePNGToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.savePNGToolStripMenuItem.Text = "Save as PNG";
+            this.savePNGToolStripMenuItem.Click += new System.EventHandler(this.savePNGToolStripMenuItem_Click);
             // 
             // 保存SVGToolStripMenuItem
             // 
-            this.保存SVGToolStripMenuItem.Name = "保存SVGToolStripMenuItem";
-            this.保存SVGToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
-            this.保存SVGToolStripMenuItem.Text = "Save as SVG";
-            this.保存SVGToolStripMenuItem.Click += new System.EventHandler(this.保存SVGToolStripMenuItem_Click);
+            this.saveSVGToolStripMenuItem.Name = "保存SVGToolStripMenuItem";
+            this.saveSVGToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.saveSVGToolStripMenuItem.Text = "Save as SVG";
+            this.saveSVGToolStripMenuItem.Click += new System.EventHandler(this.saveSVGToolStripMenuItem_Click);
             // 
             // 保存ToolStripMenuItem1
             // 
-            this.保存ToolStripMenuItem1.Name = "保存ToolStripMenuItem1";
-            this.保存ToolStripMenuItem1.Size = new System.Drawing.Size(167, 22);
-            this.保存ToolStripMenuItem1.Text = "Save as txt";
-            this.保存ToolStripMenuItem1.Click += new System.EventHandler(this.保存ToolStripMenuItem1_Click);
+            this.saveTxtToolStripMenuItem1.Name = "保存ToolStripMenuItem1";
+            this.saveTxtToolStripMenuItem1.Size = new System.Drawing.Size(139, 22);
+            this.saveTxtToolStripMenuItem1.Text = "Save as txt";
+            this.saveTxtToolStripMenuItem1.Click += new System.EventHandler(this.saveTxtToolStripMenuItem1_Click);
             // 
             // 编辑ToolStripMenuItem
             // 
-            this.编辑ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.清空ToolStripMenuItem});
-            this.编辑ToolStripMenuItem.Name = "编辑ToolStripMenuItem";
-            this.编辑ToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
-            this.编辑ToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.emptyToolStripMenuItem});
+            this.editToolStripMenuItem.Name = "编辑ToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Text = "Edit";
             // 
             // 清空ToolStripMenuItem
             // 
-            this.清空ToolStripMenuItem.Name = "清空ToolStripMenuItem";
-            this.清空ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            this.emptyToolStripMenuItem.Name = "清空ToolStripMenuItem";
+            this.emptyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.C)));
-            this.清空ToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.清空ToolStripMenuItem.Text = "Empty";
-            this.清空ToolStripMenuItem.Click += new System.EventHandler(this.清空ToolStripMenuItem_Click);
+            this.emptyToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.emptyToolStripMenuItem.Text = "Empty";
+            this.emptyToolStripMenuItem.Click += new System.EventHandler(this.EmptyToolStripMenuItem_Click);
             // 
             // 帮助ToolStripMenuItem
             // 
             this.帮助ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.githubToolStripMenuItem,
-            this.复制输出路径ToolStripMenuItem,
-            this.打开程序目录ToolStripMenuItem,
-            this.关于ToolStripMenuItem});
+            this.cpyOutPathToolStripMenuItem,
+            this.openProgDirToolStripMenuItem,
+            this.aboutToolStripMenuItem});
             this.帮助ToolStripMenuItem.Name = "帮助ToolStripMenuItem";
             this.帮助ToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.帮助ToolStripMenuItem.Text = "Help";
@@ -235,42 +236,42 @@
             // 
             // 复制输出路径ToolStripMenuItem
             // 
-            this.复制输出路径ToolStripMenuItem.Name = "复制输出路径ToolStripMenuItem";
-            this.复制输出路径ToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
-            this.复制输出路径ToolStripMenuItem.Text = "Copy output path";
-            this.复制输出路径ToolStripMenuItem.Click += new System.EventHandler(this.复制输出路径ToolStripMenuItem_Click);
+            this.cpyOutPathToolStripMenuItem.Name = "复制输出路径ToolStripMenuItem";
+            this.cpyOutPathToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.cpyOutPathToolStripMenuItem.Text = "Copy output path";
+            this.cpyOutPathToolStripMenuItem.Click += new System.EventHandler(this.cpyOutPath);
             // 
             // 打开程序目录ToolStripMenuItem
             // 
-            this.打开程序目录ToolStripMenuItem.Name = "打开程序目录ToolStripMenuItem";
-            this.打开程序目录ToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
-            this.打开程序目录ToolStripMenuItem.Text = "Open the program directory";
-            this.打开程序目录ToolStripMenuItem.Click += new System.EventHandler(this.打开程序目录ToolStripMenuItem_Click);
+            this.openProgDirToolStripMenuItem.Name = "打开程序目录ToolStripMenuItem";
+            this.openProgDirToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.openProgDirToolStripMenuItem.Text = "Open the program directory";
+            this.openProgDirToolStripMenuItem.Click += new System.EventHandler(this.openProgDir);
             // 
             // 关于ToolStripMenuItem
             // 
-            this.关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
-            this.关于ToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
-            this.关于ToolStripMenuItem.Text = "About";
-            this.关于ToolStripMenuItem.Click += new System.EventHandler(this.关于ToolStripMenuItem_Click);
+            this.aboutToolStripMenuItem.Name = "关于ToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // 工具ToolStripMenuItem
             // 
-            this.工具ToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.置顶窗口ToolStripMenuItem});
-            this.工具ToolStripMenuItem.Name = "工具ToolStripMenuItem";
-            this.工具ToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
-            this.工具ToolStripMenuItem.Text = "Tools";
+            this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.topWindowToolStripMenuItem});
+            this.toolsToolStripMenuItem.Name = "工具ToolStripMenuItem";
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
+            this.toolsToolStripMenuItem.Text = "Tools";
             // 
             // 置顶窗口ToolStripMenuItem
             // 
-            this.置顶窗口ToolStripMenuItem.Checked = true;
-            this.置顶窗口ToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.置顶窗口ToolStripMenuItem.Name = "置顶窗口ToolStripMenuItem";
-            this.置顶窗口ToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
-            this.置顶窗口ToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.置顶窗口ToolStripMenuItem.Text = "Top window";
-            this.置顶窗口ToolStripMenuItem.Click += new System.EventHandler(this.置顶窗口ToolStripMenuItem_Click);
+            this.topWindowToolStripMenuItem.Checked = true;
+            this.topWindowToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.topWindowToolStripMenuItem.Name = "置顶窗口ToolStripMenuItem";
+            this.topWindowToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
+            this.topWindowToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.topWindowToolStripMenuItem.Text = "Top window";
+            this.topWindowToolStripMenuItem.Click += new System.EventHandler(this.TopWindowToolStripMenuItem_Click);
             // 
             // tabControl1
             // 
@@ -285,6 +286,7 @@
             // 
             // tpWpfmath
             // 
+            this.tpWpfmath.Controls.Add(this.buttonCopyClipboard);
             this.tpWpfmath.Controls.Add(this.txtIn);
             this.tpWpfmath.Controls.Add(this.picOut);
             this.tpWpfmath.Controls.Add(this.label1);
@@ -303,7 +305,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 23);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(327, 348);
+            this.tabPage1.Size = new System.Drawing.Size(327, 349);
             this.tabPage1.TabIndex = 1;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -314,8 +316,18 @@
             this.wb.Location = new System.Drawing.Point(3, 3);
             this.wb.MinimumSize = new System.Drawing.Size(20, 20);
             this.wb.Name = "wb";
-            this.wb.Size = new System.Drawing.Size(321, 342);
+            this.wb.Size = new System.Drawing.Size(321, 343);
             this.wb.TabIndex = 0;
+            // 
+            // buttonCopyClipboard
+            // 
+            this.buttonCopyClipboard.Location = new System.Drawing.Point(11, 316);
+            this.buttonCopyClipboard.Name = "buttonCopyClipboard";
+            this.buttonCopyClipboard.Size = new System.Drawing.Size(149, 23);
+            this.buttonCopyClipboard.TabIndex = 3;
+            this.buttonCopyClipboard.Text = "Copy to clipboard";
+            this.buttonCopyClipboard.UseVisualStyleBackColor = true;
+            this.buttonCopyClipboard.Click += new System.EventHandler(this.buttonCopyClipboard_Click);
             // 
             // MainForm
             // 
@@ -357,25 +369,26 @@
         private System.Windows.Forms.ToolStripStatusLabel slErr;
         private System.Windows.Forms.ToolStripStatusLabel slRet;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem 文件ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 导入ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 保存ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 保存图片ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 保存SVGToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 保存ToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem 编辑ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem documentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem importToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem savePNGToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveSVGToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveTxtToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem 帮助ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem githubToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 复制输出路径ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 打开程序目录ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 清空ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 工具ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem 置顶窗口ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cpyOutPathToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openProgDirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem emptyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem topWindowToolStripMenuItem;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tpWpfmath;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.WebBrowser wb;
-        private System.Windows.Forms.ToolStripMenuItem 关于ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.Button buttonCopyClipboard;
     }
 }
 
