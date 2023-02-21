@@ -24,6 +24,11 @@ For the first time to click `Apply`, the main window of Mathink will appear. Now
 
 Inkscape 0.9x is no longer supported. Require >= 1.0
 
+Python and some libs:
+* inkex
+* cssselect
+* lxml
+
 ## Release
 
 v1.1 (original): https://github.com/pluveto/Mathink/releases

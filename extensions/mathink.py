@@ -1,10 +1,7 @@
-import simplestyle
 import subprocess
 import sys
 import os
 import inkex
-import re
-import copy
 from lxml import etree
 # from inkex.elements import load_svg, Group
 
