@@ -1,5 +1,5 @@
 .vs/
 Mathink/
-bin/
-obj/
-release/
+Mathink.GUI/bin/
+Mathink.GUI/obj/
+Mathink.GUI/release/
